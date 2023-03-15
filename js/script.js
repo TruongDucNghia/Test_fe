@@ -5,8 +5,6 @@ const nav = document.querySelector(".wrapper_header")
 const banner_li = document.querySelector(".wrapper_banner").children
 const banner_liLeg = banner_li.length
 let index = 0
-const bannerOnTimer = 3000
-const bannerOffTimer = 2800
 iconBar.addEventListener('click', () =>{
     header.classList.toggle("hiden_mobile")
 })
@@ -28,9 +26,6 @@ function animateBanner(){
         banner_li[i].classList.remove("banner_on", "banner_off")
     }
     banner_li[index].classList.add("banner_on")
-    setTimeout(function(){
-        banner_li[index].classList.add("banner_off")
-    }, bannerOffTimer)
 
     setTimeout(function(){
         if(index == banner_liLeg - 1){
@@ -39,6 +34,6 @@ function animateBanner(){
             index++
         }
         animateBanner()
-    }, bannerOnTimer)
+    }, 3000)
 }
 window.onload=animateBanner
